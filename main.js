@@ -1,5 +1,6 @@
 const modeSection = document.querySelector('.mode');
 const gameSection = document.querySelector('.game');
+const answerDisplay = document.querySelector('.answer');
 const titleDisplay = document.querySelector('.game-title');
 const statusDisplay = document.querySelector('.status');
 const countDisplay = document.querySelector('.count');
@@ -59,6 +60,7 @@ function startGame() {
       ? CHANCES_NORMAL
       : CHANCES_HARD;
   titleDisplay.innerHTML = `숫자 맞추기 게임<br/>(${gameMode} mode)`;
+  answerDisplay.innerHTML = `정답은 ${answer}`;
   fillStatusDisplay('start');
   fillCountDisplay(count);
 }
@@ -92,6 +94,7 @@ function fillStatusDisplay(status) {
       break;
     case 'correct':
       txt = '정답입니다!';
+      break;
     default:
       return;
   }
@@ -107,7 +110,7 @@ function addSubmittedNumber(value) {
 }
 
 function compareValueAnswer(value) {
-  if (value === answer) {
+  if (value == answer) {
     endGame();
     fillStatusDisplay('correct');
   } else {

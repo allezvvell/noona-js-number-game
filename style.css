@@ -82,6 +82,10 @@ body {
 .game.hide {
   display: none;
 }
+.answer {
+  text-align: center;
+  color: tomato;
+}
 .reset-btn {
   padding: 10px 20px;
   background-color: #3cd833;
